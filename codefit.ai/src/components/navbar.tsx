@@ -1,57 +1,40 @@
-import { Button } from "@/components/ui/button";
-import { Bot, Menu } from "lucide-react";
-import { motion } from "framer-motion";
-import type React from "react";
+'use client';
+
+import {Button} from '@/components/ui/button';
+import {Activity} from 'lucide-react';
+import {motion} from 'framer-motion';
 
 export default function Navbar() {
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{y: -100}}
+      animate={{y: 0}}
       className="flex items-center justify-between px-6 py-4 backdrop-blur-sm border-b border-white/10"
     >
       <a href="/" className="flex items-center space-x-2">
-        <Bot className="w-8 h-8 text-purple-500" />
+        <Activity className="w-8 h-8 text-green-500" />
         <span className="text-white font-medium text-xl">CodeFit.ai</span>
       </a>
 
-      {/* <div className="hidden md:flex items-center space-x-8">
-        <NavLink href="/features">Features</NavLink>
-        <NavLink href="/how-it-works">How it Works</NavLink>
-        <NavLink href="/examples">Examples</NavLink>
-        <NavLink href="/pricing">Pricing</NavLink>
-      </div> */}
-
-      {/* <div className="hidden md:flex items-center space-x-4">
-        <Button variant="ghost" className="text-white hover:text-purple-400">
-          Sign In
+      <div className="md:flex items-center space-x-4">
+        <Button variant="ghost" className="text-white hover:text-green-400">
+          Sign Out
         </Button>
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white">
-          Get Started
-        </Button>
-      </div> */}
-
-      <Button variant="ghost" size="icon" className="md:hidden text-white">
-        <Menu className="w-6 h-6" />
-      </Button>
+        <a href="/chat">
+          <Button variant="outline" className="text-white border-green-500 hover:bg-green-500/20">
+            AI Chat
+          </Button>
+        </a>
+      </div>
     </motion.nav>
   );
 }
 
-function NavLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+function NavLink({href, children}: {href: string; children: React.ReactNode}) {
   return (
-    <a
-      href={href}
-      className="text-gray-300 hover:text-white transition-colors relative group"
-    >
+    <a href={href} className="text-gray-300 hover:text-white transition-colors relative group">
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full" />
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all group-hover:w-full" />
     </a>
   );
 }

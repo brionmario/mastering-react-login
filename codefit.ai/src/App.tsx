@@ -1,29 +1,18 @@
-import Hero from './components/hero'
-import Navbar from './components/navbar'
-import { SparklesCore } from './components/sparkles'
+import Home from '@/pages/home';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Chat from '@/pages/chat';
 
 function App() {
   return (
-    <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-    {/* Ambient background with moving particles */}
-    <div className="h-full w-full absolute inset-0 z-0">
-      <SparklesCore
-        id="tsparticlesfullpage"
-        background="transparent"
-        minSize={0.6}
-        maxSize={1.4}
-        particleDensity={100}
-        className="w-full h-full"
-        particleColor="#FFFFFF"
-      />
+    <div className="font-(family-name:--font-space-grotesk)">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
+        </Routes>
+      </Router>
     </div>
-
-    <div className="relative z-10">
-      <Navbar />
-      <Hero />
-    </div>
-  </main>
-  )
+  );
 }
 
-export default App
+export default App;

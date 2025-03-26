@@ -1,11 +1,19 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { FileText } from "lucide-react"
+import { Activity, Brain, Code, Coffee, Dumbbell, Heart, Timer } from "lucide-react"
 
-export function FloatingPaper({ count = 5 }) {
+export function FloatingIcons({ count = 5 }) {
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 })
+
+  const icons = [
+    <Dumbbell key="dumbbell" className="w-8 h-8 text-green-400/50" />,
+    <Activity key="activity" className="w-8 h-8 text-blue-400/50" />,
+    <Heart key="heart" className="w-8 h-8 text-red-400/50" />,
+    <Code key="code" className="w-8 h-8 text-yellow-400/50" />,
+    <Timer key="timer" className="w-8 h-8 text-purple-400/50" />,
+    <Coffee key="coffee" className="w-8 h-8 text-orange-400/50" />,
+    <Brain key="brain" className="w-8 h-8 text-pink-400/50" />,
+  ]
 
   useEffect(() => {
     // Update dimensions only on client side
@@ -50,8 +58,8 @@ export function FloatingPaper({ count = 5 }) {
             ease: "linear",
           }}
         >
-          <div className="relative w-16 h-20 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex items-center justify-center transform hover:scale-110 transition-transform">
-            <FileText className="w-8 h-8 text-purple-400/50" />
+          <div className="relative w-16 h-16 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex items-center justify-center transform hover:scale-110 transition-transform">
+            {icons[i % icons.length]}
           </div>
         </motion.div>
       ))}
