@@ -29,12 +29,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-
-function NavLink({href, children}: {href: string; children: React.ReactNode}) {
-  return (
-    <a href={href} className="text-gray-300 hover:text-white transition-colors relative group">
-      {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all group-hover:w-full" />
-    </a>
-  );
-}
