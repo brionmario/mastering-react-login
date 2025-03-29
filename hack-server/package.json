@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "name": "@brionmario/react-security-hack-server",
+  "description": "Node.js server to simulate a XSS hack server",
+  "version": "0.0.0",
+  "keywords": [
+    "react",
+    "security",
+    "hackserver",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/brionmario/react-security#readme",
+  "bugs": {
+    "url": "https://github.com/brionmario/react-security/issues"
+  },
+  "license": "MIT",
+  "author": "Brion Mario",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brionmario/react-security",
+    "directory": "apps/hack-server"
+  },
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {}
+}

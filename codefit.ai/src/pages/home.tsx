@@ -1,8 +1,17 @@
 import Hero from '@/components/hero';
 import Navbar from '@/components/navbar';
 import {SparklesCore} from '@/components/sparkles';
+import {useAuthContext} from '@asgardeo/auth-react';
+import {Navigate} from 'react-router';
 
 export default function Home() {
+  const {state} = useAuthContext();
+  const {isAuthenticated, isLoading} = state;
+
+  if (!isLoading && isAuthenticated) {
+    return <Navigate to="/chat" replace />;
+  }
+
   return (
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       {/* Ambient background with moving particles */}

@@ -14,27 +14,23 @@ interface CouponPopupProps {
   defaultShow?: boolean;
 }
 
-export function CouponPopup({
-  couponCode = 'CODEFIT25',
-  title = 'Special Offer!',
-  description = 'Get 25% off your first month of CodeFit.ai Premium',
-  buttonText = 'Claim Offer',
-  onClose,
-}: CouponPopupProps) {
+export function CouponPopup({onClose}: CouponPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [claimURL, setClaimURL] = useState('');
+  const [couponCode, setCouponCode] = useState('');
+  const [discountPercentage, setDiscountPercentage] = useState('');
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
 
-    const couponCode = searchParams?.get('coupon_code');
-    const claimURL = searchParams?.get('claim_url');
+    const coupon = searchParams?.get('coupon_code');
+    const discount = searchParams?.get('discount');
 
-    const shouldShow = couponCode && claimURL;
+    const shouldShow = coupon && discount;
 
     if (shouldShow) {
-      setClaimURL(claimURL);
+      setCouponCode(coupon);
+      setDiscountPercentage(discount);
 
       const timer = setTimeout(() => {
         setIsVisible(true);
@@ -101,8 +97,11 @@ export function CouponPopup({
 
                 {/* Coupon details */}
                 <div className="bg-gradient-to-b from-green-500/20 to-transparent px-6 pb-6 text-center">
-                  <h3 className="text-2xl font-bold text-white mt-4">{title}</h3>
-                  <p className="text-gray-300 mt-2">{description}</p>
+                  <h3 className="text-2xl font-bold text-white mt-4">Special Offer!</h3>
+                  <p className="text-gray-300 mt-2">
+                    Get <span dangerouslySetInnerHTML={{__html: discountPercentage}} /> off your first month of
+                    CodeFit.ai PREMIUM'
+                  </p>
                 </div>
               </div>
 
@@ -125,12 +124,10 @@ export function CouponPopup({
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                   onClick={() => {
-                    if (claimURL) {
-                      window.open(claimURL, '_blank');
-                    }
+                    window.open(`${window.location.origin}/upgrade`, '_blank');
                   }}
                 >
-                  {buttonText}
+                  Claim
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
 

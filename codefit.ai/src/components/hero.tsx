@@ -2,8 +2,11 @@ import {Button} from '@/components/ui/button';
 import {motion} from 'framer-motion';
 import {FloatingIcons} from '@/components/floating-icons';
 import {RoboAnimation} from './robo-animation';
+import {useAuthContext} from '@asgardeo/auth-react';
 
 export default function Hero() {
+  const {signIn} = useAuthContext();
+
   return (
     <div className="relative min-h-[calc(100vh-76px)] flex items-center">
       {/* Floating fitness icons background */}
@@ -39,8 +42,20 @@ export default function Hero() {
             transition={{duration: 0.5, delay: 0.4}}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button size="xxl" className="bg-green-600 hover:bg-green-700 text-white px-8">
+            <Button
+              size="xxl"
+              className="bg-green-600 hover:bg-green-700 text-white px-8"
+              onClick={() => window.open(import.meta.env.VITE_ASGARDEO_SELF_SIGN_UP_URL, '_self')}
+            >
               Get Started 🚀
+            </Button>
+            <Button
+              variant="outline"
+              size="xxl"
+              className="text-white border-green-500 hover:bg-green-500/20"
+              onClick={() => signIn()}
+            >
+              Already a Member?
             </Button>
           </motion.div>
         </div>

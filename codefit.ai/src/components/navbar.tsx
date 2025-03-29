@@ -3,8 +3,13 @@
 import {Button} from '@/components/ui/button';
 import {motion} from 'framer-motion';
 import logo from '@/assets/logo.png';
+import {useAuthContext} from '@asgardeo/auth-react';
+import {User} from 'lucide-react';
 
 export default function Navbar() {
+  const {state, signOut} = useAuthContext();
+  const {isAuthenticated, isLoading, username} = state;
+
   return (
     <motion.nav
       initial={{y: -100}}
@@ -16,14 +21,17 @@ export default function Navbar() {
       </a>
 
       <div className="md:flex items-center space-x-4">
-        <Button variant="ghost" className="text-white hover:text-green-400">
-          Sign Out
-        </Button>
-        <a href="/chat">
-          <Button variant="outline" className="text-white border-green-500 hover:bg-green-500/20">
-            AI Chat
-          </Button>
-        </a>
+        {!isLoading && isAuthenticated && (
+          <>
+            <div className="flex items-center mr-2 text-gray-300 hover:text-white transition-colors">
+              <User className="h-4 w-4 mr-2 text-green-400" />
+              <span className="font-medium">{username}</span>
+            </div>
+            <Button variant="ghost" className="text-white hover:text-green-400" onClick={() => signOut()}>
+              Sign Out
+            </Button>
+          </>
+        )}
       </div>
     </motion.nav>
   );
