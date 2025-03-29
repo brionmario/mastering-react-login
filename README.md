@@ -1,6 +1,6 @@
 <p align="center" style="color: #343a40">
   <img
-    src="https://github-production-user-asset-6210df.s3.amazonaws.com/25959096/428275952-542965a1-b79c-48be-896e-1b7800e6eb9e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250329%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250329T071519Z&X-Amz-Expires=300&X-Amz-Signature=3c66b526bf09780aa1bc219586eb6d8e0651d4aa7c97ea69b9d4324caf937ebe&X-Amz-SignedHeaders=host" alt="Banner" width="auto"
+    src="https://raw.githubusercontent.com/brionmario/mastering-react-login/483094d7245bac786559330fb5f0c1f72ff54d81/Group%20126%20(1).png" alt="Banner" width="auto"
   >
 </p>
 <p align="center" style="font-size: 1.2rem;">
