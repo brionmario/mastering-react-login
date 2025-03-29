@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# CodeFit.ai
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setting up the Development Environment
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+If you are using `pnpm`, run the following command.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+pnpm install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+#### Create `.env.local` files based on the `.env.example` files.
+
+We will use the `.env.local` file to store the environment variables required for the applications.
+
+```env
+cp .env.example .env.local
+```
+
+Following set of environment variables are required for the application to work.
+
+```env
+# The client ID of your Asgardeo application
+VITE_ASGARDEO_CLIENT_ID=<CLIENT_ID_TAKEN_FROM_ASGARDEO_CONSOLE>
+
+# The base URL of your Asgardeo organization's services.
+# Ex: https://api.asgardeo.io/t/acme
+VITE_ASGARDEO_SERVICES_URL=<BASE_URL_TAKEN_FROM_ASGARDEO_CONSOLE>
+
+# The callback URL to redirect to after successful authentication with Asgardeo
+# Ex: https://localhost:5173
+VITE_ASGARDEO_SIGN_IN_REDIRECT_URL=<SIGN_IN_URL_AFTER_A_SUCCESSFUL_AUTHENTICATION>
+
+# The callback URL to redirect to after successful logout from Asgardeo
+# Ex: https://localhost:5173
+VITE_ASGARDEO_SIGN_OUT_REDIRECT_URL=<SIGN_OUT_URL_AFTER_A_SUCCESSFUL_AUTHENTICATION>
+```
+
+## Running the Applications
+
+To start the applications, run the following command from the root of the project.
+
+```bash
+npm run dev
+```
+
+If you are using `pnpm`, run the following command.
+
+```bash
+pnpm dev
 ```
