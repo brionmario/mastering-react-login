@@ -19,7 +19,7 @@
 
 Grab the slides for the workshop from Slideshare.
 
-- [Mastering Secure Login Mechanisms for React Apps](https://www.slideshare.net/slideshow/mastering-secure-login-mechanisms-for-react-apps-pdf/277294877)
+- [Mastering Secure Login Mechanisms for React Apps](https://www.slideshare.net/slideshow/mastering-secure-login-mechanisms-for-react-apps-pdf-1ee7/277578400)
 
 ## Try out the demo applications
 
